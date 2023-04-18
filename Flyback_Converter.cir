@@ -1,0 +1,19 @@
+
+V1 1 0 10V   ; DC voltage source with 12V input
+L1 1 2 100mH  ; Inductor
+Sswitch 2 0 3 0 Sw
+V_switch 3 0 PULSE(0V 1V 0.1us 0.1us 0us 90ms 100ms)
+D1 2 4 1N4148	; Diode
+C1 4 0 10uF  	; Output Capacitor
+R1 4 0 100000k	;model spark gap
+
+.model Sw SW(Ron=0, Roff=1000M, Vt=0.5V)
+.model 1N4148 D(IS=1e-16 RS=13.9m N=1.752 CJO=4.52p M=0.333 TT=6.29n)
+
+
+.tran 10ms 50s
+.control
+run
+plot V(4)
+.endc
+.end
