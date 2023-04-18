@@ -1,7 +1,7 @@
 
 V1 1 0 10V   ; DC voltage source with 12V input
 L1 1 2 100mH  ; Inductor
-Sswitch 2 0 3 0 Sw
+Sswitch 2 0 3 0 Sw; voltage controlled switch, can be replaced with a transistor
 V_switch 3 0 PULSE(0V 1V 0.1us 0.1us 0us 90ms 100ms)
 D1 2 4 1N4148	; Diode
 C1 4 0 10uF  	; Output Capacitor
